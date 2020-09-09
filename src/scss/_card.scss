@@ -1,0 +1,23 @@
+.card{
+  margin:auto;
+  max-width: 900px;
+
+  .card-img-top {
+    width:100%;
+    height:500px;
+    object-fit: contain;
+  }
+  .card .col-md-4 img{
+    width:auto;
+    height:100%;
+  }
+  span{
+    font-weight: bold;
+    float: right;
+  }
+
+
+}
+
+
+
