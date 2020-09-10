@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
     const GameListing = ({details}) => {
         return(
-            <div className="col-md-6 col-12 justify-content-center">
+            <div className="col-md-6 col-12 my-4 justify-content-center">
                 <div className="card" >
                     <img className="card-img-top align-self-center" src={`./img/${details.imgUrl}`} alt="GameImage"/>
                     <div className="card-body text-center">
@@ -14,9 +14,9 @@ import {Link} from "react-router-dom";
                         <li className="list-group-item">Genre : <span>{details.genre}</span></li>
                         <li className="list-group-item">Developer : <span>{details.developer}</span></li>
                     </ul>
-                    <div className="card-body">
+                    <div className="card-body text-center">
                         <Link to={`game/${details.name}`.replace(/\s/g,'')}>
-                            <p>More Information</p>
+                            More Information
                         </Link>
                     </div>
                 </div>
