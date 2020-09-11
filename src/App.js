@@ -7,6 +7,8 @@ import NavbarOG from "./component/Navbar";
 import GameListing from './component/GameListing';
 import Game from './component/Game';
 
+import ApiTest from './component/ApicalipseTest';
+
 
 class App extends React.Component
 {
@@ -34,9 +36,6 @@ class App extends React.Component
                     ]
                 }
             ));
-        } else {
-            localStorage.clear();
-            this.initList();
         }
     }
 
@@ -59,6 +58,7 @@ class App extends React.Component
                                     {gamesList.games.map(game =>(
                                         <GameListing details={game} />
                                     ))}
+                                    <ApiTest/>
                                 </div>
                             </div>
                         </div>

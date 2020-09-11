@@ -9910,8 +9910,8 @@ h3 {
   float: right;
 }
 
-#commentList .my-1 .btn {
-  float: right;
+#commentList p {
+  margin: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
