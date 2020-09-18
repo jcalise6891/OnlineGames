@@ -11,11 +11,11 @@ class ApiTest extends Component{
 
     componentDidMount() {
         axios({
-            url: "https://127.0.0.1:8000",
+            url: "https://127.0.0.1:8000/game",
             method: 'GET',
         })
             .then(response => {
-                this.setState({games: response.data.games});
+                this.setState({games: response.data});
             })
             .catch(err => {
                 console.error(err);
