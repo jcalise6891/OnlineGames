@@ -74,7 +74,9 @@ class Comment extends Component
 
         listComment.comments.splice(pos,1);
         localStorage.setItem('Comments',JSON.stringify(listComment));
+        console.log(listComment)
         this.setState({comments:listComment});
+
 
    }
 

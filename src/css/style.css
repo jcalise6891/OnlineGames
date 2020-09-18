@@ -9914,4 +9914,10 @@ h3 {
   margin: 0;
 }
 
+#sort-bar ul li {
+  list-style: none;
+  display: inline;
+  margin-left: 10px;
+}
+
 /*# sourceMappingURL=style.css.map */

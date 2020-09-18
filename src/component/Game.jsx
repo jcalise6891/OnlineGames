@@ -1,13 +1,13 @@
 import React from "react";
-import App from "../App";
 import gameDescription from '../json/gameDescription.json';
 import Comment from "./Comment";
+import GameListing from "./GameListing";
 
 
 
-function game({match}) {
+function Game({match}) {
 
-    let gameList = new App();
+    let gameList = new GameListing();
     let gameID = null;
     let description = null;
 
@@ -51,4 +51,4 @@ function game({match}) {
 
 }
 
-export default game;
+export default Game;
