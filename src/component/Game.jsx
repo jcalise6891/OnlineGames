@@ -9,7 +9,8 @@ class Game extends Component
 
     state = {
         games:[],
-        comment:[]
+        comment:[],
+        studio:{}
     }
 
     getGame(){
@@ -26,7 +27,7 @@ class Game extends Component
             method: 'GET',
         })
             .then(response => {
-                this.setState({games: response.data});
+                this.setState({games: response.data, studio: response.data.studio});
             })
             .catch(err => {
                 console.error(err);
@@ -34,12 +35,9 @@ class Game extends Component
     }
 
     render(){
+        console.log(this.state.studio);
         const game = this.state.games;
-        setTimeout(function(){
-            console.log(game.studio.name);
-        },10000);
-
-
+        const studio = this.state.studio;
 
         return (
             <div className="container">
@@ -56,7 +54,7 @@ class Game extends Component
                                     <li className="list-group-item">Release Date : <span>{game.releasedAt}</span>
                                     </li>
                                     <li className="list-group-item">Genre : <span>{game.genre}</span></li>
-                                    <li className="list-group-item">Developer : <span></span></li>
+                                    <li className="list-group-item">Developer : <span>{studio.name}</span></li>
                                     <li className="list-group-item">{game.description}</li>
                                 </ul>
                             </div>
