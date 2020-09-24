@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import axios from "axios";
 import Studio from "./Studio";
+import Comment from "./Comment";
 
 
 
@@ -35,7 +36,6 @@ class Game extends Component
     }
 
     render(){
-        console.log(this.state.studio);
         const game = this.state.games;
         const studio = this.state.studio;
 
@@ -62,7 +62,7 @@ class Game extends Component
                     </div>
                 </div>
                 <div className="row">
-                    {/*<Comment/>*/}
+                    <Comment/>
                 </div>
             </div>
         );
