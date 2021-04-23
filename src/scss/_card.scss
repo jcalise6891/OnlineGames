@@ -16,8 +16,12 @@
     float: right;
   }
 
+  background-color:var(--bg-color);
+
+  .list-group-item{
+    background-color: var(--bg-color);
+  }
 
 }
-
 
 

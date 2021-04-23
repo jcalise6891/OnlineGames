@@ -7,6 +7,8 @@ import NavbarOG from "./component/Navbar";
 import GameListing from './component/GameListing';
 import Game from './component/Game';
 import ApiTest from "./component/og-api";
+import GenreListing from "./component/GenreListing";
+import GameListingFromGenre from "./component/GameListingFromGenre";
 
 class App extends React.Component {
 
@@ -20,6 +22,8 @@ class App extends React.Component {
                     <Route path="/" exact component={GameListing}/>
                     <Route path="/game/:id" component={Game}/>
                     <Route path="/apiTest" exact component={ApiTest}/>
+                    <Route path="/genre" exact component={GenreListing}/>
+                    <Route path="/genre/:id" component={GameListingFromGenre}/>
                 </Switch>
             </Router>
         );

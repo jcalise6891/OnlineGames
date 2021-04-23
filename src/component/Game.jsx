@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import axios from "axios";
 import Studio from "./Studio";
 import Comment from "./Comment";
+import {Link} from "react-router-dom";
 
 
 
@@ -11,7 +12,8 @@ class Game extends Component
     state = {
         games:[],
         comment:[],
-        studio:{}
+        studio:{},
+        genre:[{}]
     }
 
     getGame(){
@@ -28,7 +30,7 @@ class Game extends Component
             method: 'GET',
         })
             .then(response => {
-                this.setState({games: response.data, studio: response.data.studio});
+                this.setState({games: response.data, studio: response.data.studio, genre:response.data.genre});
             })
             .catch(err => {
                 console.error(err);
@@ -38,6 +40,7 @@ class Game extends Component
     render(){
         const game = this.state.games;
         const studio = this.state.studio;
+        const genre = this.state.genre;
 
         return (
             <div className="container">
@@ -51,9 +54,21 @@ class Game extends Component
                             <div className="card-body">
                                 <h5 className="card-title">{game.name}</h5>
                                 <ul className="list-group list-group-flush ">
-                                    <li className="list-group-item">Release Date : <span>{game.releasedAt}</span>
+                                    <li className="list-group-item">Release Date :
+                                        <span>{`${game.releasedAt}`.replace(/-/g,'/')}</span>
                                     </li>
-                                    <li className="list-group-item">Genre : <span>{game.genre}</span></li>
+                                    <li className="list-group-item">Genre :
+                                        <span>
+                                        {genre.map((genre,i,arr) => {
+                                                    if(arr.length - 1 === i) {
+                                                        return <Link to={`/genre/${genre.id}`}>{genre.name}</Link>
+                                                    } else {
+                                                        return <Link to={`/genre/${genre.id}`}>{`${genre.name}, `}</Link>
+                                                    }
+                                                }
+                                            )}
+                                    </span>
+                                    </li>
                                     <li className="list-group-item">Developer : <span>{studio.name}</span></li>
                                     <li className="list-group-item">{game.description}</li>
                                 </ul>

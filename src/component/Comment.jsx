@@ -34,8 +34,9 @@ class Comment extends Component
         const comment = {id, content};
 
         let data = new FormData();
+        data.append('id', comment.id.toString())
         data.append('content', comment.content)
-        data.append('IDComment', comment.id.toString())
+
 
 
         axios({
@@ -50,6 +51,7 @@ class Comment extends Component
                 let commentList = this.state.comments
                 commentList.push(response.data)
                 this.setState({comments:commentList});
+                console.log(this.state.comments);
             })
             .catch(err => {
                 console.error(err);
@@ -64,25 +66,24 @@ class Comment extends Component
         this.setState({newComment:value});
    }
 
-   // handleDelete = (id) =>{
-   //
-   //      const listComment = this.getComments();
-   //      let pos = null;
-   //
-   //      this.getComments().comments.forEach( comment =>{
-   //          if(comment.id === id){
-   //              pos = this.getComments().comments.map(function (e){return e.id}).indexOf(id);
-   //
-   //          }
-   //      });
-   //
-   //      listComment.comments.splice(pos,1);
-   //      localStorage.setItem('Comments',JSON.stringify(listComment));
-   //      console.log(listComment)
-   //      this.setState({comments:listComment});
-   //
-   //
-   // }
+   handleDelete = (id) =>{
+
+
+       axios({
+           url: "https://127.0.0.1:8000/game/" + this.getLastItem(window.location.href.toString()) + "/comment?IDComment="+id,
+           method: 'DELETE'
+       })
+           .then(response => {
+               let commentList = this.state.comments;
+               let removeIndex = commentList.map(function(item) { return item.id; }).indexOf(response.data)
+               commentList.splice(removeIndex,1);
+               console.log(commentList);
+               this.setState({comments:commentList});
+           })
+           .catch(err => {
+               console.error(err);
+           });
+   }
 
 
     render = () =>{
